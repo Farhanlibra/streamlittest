@@ -1,7 +1,7 @@
 
 
 import streamlit as st
-from pypdf import PdfReader
+
 
 
 
@@ -14,11 +14,7 @@ def main():
 
     pdf= st.file_uploader("upload your PDF", type="pdf")
 
-    if pdf is not None:
-        pdf_reader = PdfReader(pdf)
-        text=""
-        for page in pdf_reader.pages:
-            text += page.extract_text()
+    
     
 
     if __name__ == '__main__':
