@@ -7,8 +7,8 @@ import streamlit as st
 
 
 def main():
-    st.set_page_config(page_title="my app") 
     
+    st.write("welcome")
     st.header("ask your pdf")
     st.button("test")
 
