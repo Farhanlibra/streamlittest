@@ -32,12 +32,14 @@ def main():
         length_function=len
     )
 
-    chunks=text_spliter.split_documents(pdf)
+    chunks=text_spliter.split_documents(text)
+    st.write(chunks)
 
 #embeddings
 
     embeddings=OpenAIEmbeddings()
     knowledgebase=FAISS.afrom_texts(chunks, embeddings)
+    
     userquestion= st.text_input("ask a question")
     
     if userquestion:
