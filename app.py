@@ -18,7 +18,7 @@ def main():
     
     if pdf is not None:
         pdf_reader=PdfReader(pdf)
-        text=""
+        text = ""
         for page in pdf_reader.pages:
             text +=page.extract_text()
             st.write(text)
@@ -32,7 +32,7 @@ def main():
         length_function=len
     )
 
-    chunks=text_spliter.split_text(text)
+    chunks=text_spliter.split_documents(text)
 
 #embeddings
 
