@@ -3,7 +3,9 @@
 import streamlit as st
 from dotenv import load_dotenv
 from pypdf import PdfReader
-
+from langchain_text_splitters import CharacterTextSplitter
+from langchain.embeddings.openai import OpenAIEmbeddings
+from langchain.vectorstores import FAISS
 
 
 
@@ -21,8 +23,25 @@ def main():
                 text+=page.extract_text()
                 st.write(text)
 
-    userquestion= st.text_input("ask a question")
     
+#convert text into chunks
+    text_spliter=CharacterTextSplitter(
+        separator="\n",
+        chunk_size=1000,
+        chunk_overlap=200,
+        length_function=len
+    )
+
+    chunks=text_spliter.split_text(text)
+
+#embeddings
+
+    embeddings=OpenAIEmbeddings()
+    knowledgebase=FAISS.from_texts(chunks, embeddings)
+
+    userquestion= st.text_input("ask a question")
+    if userquestion:
+        docs=knowledgebase.similarity_search(userquestion)
 
 
 if __name__ == '__main__':
