@@ -17,11 +17,11 @@ def main():
     pdf = st.file_uploader("upload pdf", type="pdf")
     
     if pdf is not None:
-          pdf_reader=PdfReader(pdf)
-          text=""
-          for page in pdf_reader.pages:
-                text+=page.extract_text()
-                st.write(text)
+        pdf_reader=PdfReader(pdf)
+        text=""
+        for page in pdf_reader.pages:
+            text+=page.extract_text()
+            st.write(text)
 
     
 #convert text into chunks
@@ -37,12 +37,11 @@ def main():
 #embeddings
 
     embeddings=OpenAIEmbeddings()
-    knowledgebase=FAISS.from_texts(chunks, embeddings)
+    knowledgebase=FAISS.afrom_texts(chunks, embeddings)
 
     userquestion= st.text_input("ask a question")
     if userquestion:
         docs=knowledgebase.similarity_search(userquestion)
-
 
 if __name__ == '__main__':
      main()
