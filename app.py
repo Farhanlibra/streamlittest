@@ -37,10 +37,13 @@ def main():
 
 #embeddings
 
-    embeddings=OpenAIEmbeddings()
+    embeddings = OpenAIEmbeddings()
     knowledgebase=FAISS.from_texts(chunks, embeddings)
     
-    st.text_input("ask a question")
+    userq = st.text_input("ask a question")
+
+    if userq:
+        docs = knowledgebase.similarity_search(text)
     
         
 if __name__ == '__main__':
