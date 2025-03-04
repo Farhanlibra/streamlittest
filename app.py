@@ -26,7 +26,7 @@ def main():
     
 #convert text into chunks
     text_spliter=CharacterTextSplitter(
-        separator="\n",
+        separator='/n',
         chunk_size=1000,
         chunk_overlap=200,
         lghth_function=len
