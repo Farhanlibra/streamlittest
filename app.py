@@ -43,7 +43,7 @@ def main():
     userq = st.text_input("ask a question")
 
     if userq:
-        docs = knowledgebase.similarity_search(text)
+        docs = knowledgebase.similarity_search(userq)
     
         
 if __name__ == '__main__':
