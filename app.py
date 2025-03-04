@@ -38,8 +38,8 @@ def main():
 
     embeddings=OpenAIEmbeddings()
     knowledgebase=FAISS.afrom_texts(chunks, embeddings)
-
     userquestion= st.text_input("ask a question")
+    
     if userquestion:
         FAISS.similarity_search(userquestion)
 
