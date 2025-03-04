@@ -38,7 +38,7 @@ def main():
 #embeddings
 
     embeddings=OpenAIEmbeddings()
-    knowledgebase=FAISS.afrom_texts(chunks, embeddings)
+    knowledgebase=FAISS.from_texts(chunks, embeddings)
     
     userquestion= st.text_input("ask a question")
     
