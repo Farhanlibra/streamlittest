@@ -27,12 +27,12 @@ def main():
 #convert text into chunks
     text_spliter=CharacterTextSplitter(
         separator='/n',
-        chunk_size=1000,
+        chunk_size=400,
         chunk_overlap=200,
         lghth_function=len
     )
 
-    chunks= text_spliter.split_text(text=text)
+    chunks= text_spliter.split_text(text)
     st.write(chunks)
 
 #embeddings
