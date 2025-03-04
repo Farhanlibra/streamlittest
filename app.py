@@ -32,7 +32,7 @@ def main():
         length_function=len
     )
 
-    chunks=text_spliter.split_documents(text)
+    chunks=text_spliter.split_documents(pdf)
 
 #embeddings
 
