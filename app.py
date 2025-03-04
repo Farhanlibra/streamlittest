@@ -40,7 +40,8 @@ def main():
     embeddings=OpenAIEmbeddings()
     knowledgebase=FAISS.from_texts(chunks, embeddings)
     
-    userquestion= st.text_input("ask a question")
+    userquestion = st.text_input("ask a question")
+    userquestion
     
     if userquestion:
         docs = knowledgebase.similarity_search(userquestion)
