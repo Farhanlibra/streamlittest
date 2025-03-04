@@ -20,7 +20,7 @@ def main():
         pdf_reader=PdfReader(pdf)
         text=""
         for page in pdf_reader.pages:
-            text+=page.extract_text()
+            text +=page.extract_text()
             st.write(text)
 
     
