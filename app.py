@@ -29,7 +29,7 @@ def main():
         separator="\n",
         chunk_size=1000,
         chunk_overlap=200,
-        function=len
+        lghth_function=len
     )
 
     chunks= text_spliter.split_text(text=text)
