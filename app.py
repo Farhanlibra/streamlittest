@@ -41,7 +41,7 @@ def main():
 
     userquestion= st.text_input("ask a question")
     if userquestion:
-        docs=knowledgebase.similarity_search(userquestion)
+        FAISS.similarity_search(userquestion)
 
 if __name__ == '__main__':
      main()
